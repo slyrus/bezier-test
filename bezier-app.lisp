@@ -60,6 +60,6 @@
                                       :line-thickness line-thickness
                                       :ink +blue+))))))
 
-(defun bezier-app-2-main ())
-(run-frame-top-level (make-application-frame 'bezier-app-2))
+(defun bezier-app-2-main ()
+  (run-frame-top-level (make-application-frame 'bezier-app-2)))
 

@@ -36,7 +36,13 @@
                       (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
                 (mcclim-bezier:draw-bezier-design* stream design
                                             :line-thickness line-thickness
-                                            :ink +sea-green+))))))))
+                                            :ink +sea-green+))
+              (let ((design
+                     (mcclim-bezier:make-bezier-curve*
+                      (list 20 150 20 80 90 110 90 170 90 220 140 210 140 140))))
+                (mcclim-bezier:draw-bezier-design* stream design
+                                            :line-thickness line-thickness
+                                            :ink +orange+))))))))
   file)
 
 (uiop:run-program `("ps2pdf" ,(uiop:unix-namestring (bezier-test-1))))
@@ -72,16 +78,23 @@
                             :end-angle (/ pi 2)
                             :filled nil
                             :line-thickness line-thickness)
+              (draw-rectangle* stream 0 0 10 10 :ink +green+)
+              (draw-rectangle* stream 3 3 13 13 :ink +red+)
+              (draw-rectangle* stream 34 44 247 256 :ink +yellow+)
+              (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
               (let ((design
                      (mcclim-bezier:make-bezier-area*
                       (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
-                (draw-rectangle* stream 0 0 10 10 :ink +green+)
-                (draw-rectangle* stream 3 3 13 13 :ink +red+)
-                (draw-rectangle* stream 34 44 247 256 :ink +yellow+)
-                (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
+
                 (mcclim-bezier:draw-bezier-design* stream design
-                                            :line-thickness line-thickness
-                                            :ink +black+))))
+                                                   :line-thickness line-thickness
+                                                   :ink +black+))
+              (let ((design
+                     (mcclim-bezier:make-bezier-curve*
+                      (list 20 150 20 80 90 110 90 170 90 220 140 210 140 140))))
+                (mcclim-bezier:draw-bezier-design* stream design
+                                                   :line-thickness line-thickness
+                                                   :ink +royal-blue+))))
           (formatting-cell (stream :align-x :left
                                    :align-y :center)
             (let ((line-thickness 4))
@@ -96,16 +109,22 @@
                             :end-angle (/ pi 2)
                             :filled nil
                             :line-thickness line-thickness)
+              (draw-rectangle* stream 0 0 10 10 :ink +green+)
+              (draw-rectangle* stream 3 3 13 13 :ink +red+)
+              (draw-rectangle* stream 34 44 247 256 :ink +pink+)
+              (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
               (let ((design
                      (mcclim-bezier:make-bezier-area*
                       (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
-                (draw-rectangle* stream 0 0 10 10 :ink +green+)
-                (draw-rectangle* stream 3 3 13 13 :ink +red+)
-                (draw-rectangle* stream 34 44 247 256 :ink +pink+)
-                (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
                 (mcclim-bezier:draw-bezier-design* stream design
-                                            :line-thickness line-thickness
-                                            :ink +sea-green+))))))))
+                                                   :line-thickness line-thickness
+                                                   :ink +sea-green+))
+              (let ((design
+                     (mcclim-bezier:make-bezier-curve*
+                      (list 20 150 20 80 90 110 90 170 90 220 140 210 140 140))))
+                (mcclim-bezier:draw-bezier-design* stream design
+                                                   :line-thickness line-thickness
+                                                   :ink +orange+))))))))
   file)
 
 (uiop:run-program `("ps2pdf" ,(uiop:unix-namestring (bezier-test-2))))

@@ -1,6 +1,6 @@
 
 (defpackage #:bezier-app
-  (:use #:clim #:clim-lisp #:clim-extensions))
+  (:use #:clim #:clim-lisp #:clim-extensions #:mcclim-bezier))
 
 (in-package #:bezier-app)
 
@@ -19,13 +19,13 @@
   (declare (ignore frame))
   (let ((line-thickness 4)
         (design
-         (climi::make-bezier-thing*
-          'climi::bezier-area
+         (mcclim-bezier::make-bezier-thing*
+          'mcclim-bezier:bezier-area
           (list 34 44 -100 128 347 124 247 256))))
     (draw-rectangle* pane 34 44 300 300 :ink +yellow+ :filled t)
-    (climi::draw-bezier-design* pane design
-                                :line-thickness line-thickness
-                                :ink +blue+)))
+    (mcclim-bezier:draw-bezier-design* pane design
+                                       :line-thickness line-thickness
+                                       :ink +blue+)))
 
 (defun bezier-app-main ()
   (run-frame-top-level (make-application-frame 'bezier-app)))
@@ -44,8 +44,8 @@
   (declare (ignore frame))
   (let ((line-thickness 4)
         (design
-         (climi::make-bezier-thing*
-          'climi::bezier-area
+         (mcclim-bezier::make-bezier-thing*
+          'mcclim-bezier:bezier-area
           (list 34 44 -100 128 347 124 247 256))))
     (formatting-table (pane :x-spacing 20
                                 :y-spacing 20)
@@ -56,7 +56,7 @@
         (formatting-cell (pane :align-x :center
                                :align-y :center)
           (draw-rectangle* pane 34 44 300 300 :ink +yellow+ :filled t)
-          (climi::draw-bezier-design* pane design
+          (mcclim-bezier:draw-bezier-design* pane design
                                       :line-thickness line-thickness
                                       :ink +blue+))))))
 

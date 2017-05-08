@@ -30,11 +30,11 @@
               (draw-rectangle* stream 0 0 10 10 :ink +green+)
               (draw-rectangle* stream 3 3 13 13 :ink +red+)
               (draw-rectangle* stream 34 44 247 256 :ink +yellow+)
+              (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
               (let ((design
-                     (climi::make-bezier-thing*
-                      'climi::bezier-area
-                      (list 34 44 34 128 147 44 247 256))))
-                (climi::draw-bezier-design* stream design
+                     (mcclim-bezier:make-bezier-area*
+                      (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
+                (mcclim-bezier:draw-bezier-design* stream design
                                             :line-thickness line-thickness
                                             :ink +sea-green+))))))))
   file)
@@ -73,13 +73,13 @@
                             :filled nil
                             :line-thickness line-thickness)
               (let ((design
-                     (climi::make-bezier-thing*
-                      'climi::bezier-area
-                      (list 34 44 34 128 147 44 247 256))))
+                     (mcclim-bezier:make-bezier-area*
+                      (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
                 (draw-rectangle* stream 0 0 10 10 :ink +green+)
                 (draw-rectangle* stream 3 3 13 13 :ink +red+)
                 (draw-rectangle* stream 34 44 247 256 :ink +yellow+)
-                (climi::draw-bezier-design* stream design
+                (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
+                (mcclim-bezier:draw-bezier-design* stream design
                                             :line-thickness line-thickness
                                             :ink +black+))))
           (formatting-cell (stream :align-x :left
@@ -97,13 +97,13 @@
                             :filled nil
                             :line-thickness line-thickness)
               (let ((design
-                     (climi::make-bezier-thing*
-                      'climi::bezier-area
-                      (list 34 44 34 128 147 44 247 256))))
+                     (mcclim-bezier:make-bezier-area*
+                      (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
                 (draw-rectangle* stream 0 0 10 10 :ink +green+)
                 (draw-rectangle* stream 3 3 13 13 :ink +red+)
                 (draw-rectangle* stream 34 44 247 256 :ink +pink+)
-                (climi::draw-bezier-design* stream design
+                (draw-polygon* stream '(10 200 50 120 120 200) :ink +blue+)
+                (mcclim-bezier:draw-bezier-design* stream design
                                             :line-thickness line-thickness
                                             :ink +sea-green+))))))))
   file)

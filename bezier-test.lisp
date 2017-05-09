@@ -35,14 +35,14 @@
                      (mcclim-bezier:make-bezier-area*
                       (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
                 (mcclim-bezier:draw-bezier-design* stream design
-                                            :line-thickness line-thickness
-                                            :ink +sea-green+))
+                                                   :line-thickness line-thickness
+                                                   :ink +sea-green+))
               (let ((design
                      (mcclim-bezier:make-bezier-curve*
                       (list 20 150 20 80 90 110 90 170 90 220 140 210 140 140))))
                 (mcclim-bezier:draw-bezier-design* stream design
-                                            :line-thickness line-thickness
-                                            :ink +orange+))))))))
+                                                   :line-thickness line-thickness
+                                                   :ink +orange+))))))))
   file)
 
 (uiop:run-program `("ps2pdf" ,(uiop:unix-namestring (bezier-test-1))))
@@ -117,13 +117,13 @@
                      (mcclim-bezier:make-bezier-area*
                       (list 34 44 34 128 147 44 247 256 34 128 50 50 34 44))))
                 (mcclim-bezier:draw-bezier-design* stream design
-                                                   :line-thickness line-thickness
+                                                   :line-thickness 8
                                                    :ink +sea-green+))
               (let ((design
                      (mcclim-bezier:make-bezier-curve*
                       (list 20 150 20 80 90 110 90 170 90 220 140 210 140 140))))
                 (mcclim-bezier:draw-bezier-design* stream design
-                                                   :line-thickness line-thickness
+                                                   :line-thickness 16
                                                    :ink +orange+))))))))
   file)
 

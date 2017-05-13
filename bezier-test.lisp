@@ -130,3 +130,18 @@
 (uiop:run-program `("ps2pdf" ,(uiop:unix-namestring (bezier-test-2))))
 
 
+(defun grid-test-1 (&key (file #p"grid-test-1.ps"))
+  (format t ";; Creating ~S.~%" file)
+  (with-open-file (file-stream file :direction :output :if-exists :supersede)
+    (with-output-to-postscript-stream
+        (stream file-stream
+                :header-comments '(:title "Foo")
+                :scale-to-fit t)
+      (loop for i from 0 to 100 by 10
+         do
+           (draw-line* stream i 0 i 100 :line-thickness 2 :ink +black+)
+           (draw-line* stream 0 i 100 i :line-thickness 2 :ink +black+))))
+  file)
+
+(uiop:run-program `("ps2pdf" ,(uiop:unix-namestring (grid-test-1))))
+

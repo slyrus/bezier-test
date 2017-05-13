@@ -1,6 +1,6 @@
 
 (asdf:defsystem #:bezier-test
-  :depends-on (#:mcclim)
+  :depends-on (#:mcclim #:mcclim-bezier #:clim-shapes)
   :serial t
   :components
   ((:file "bezier-test")
